@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joissy Andrade | Portfólio</title>
+
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --card: #11172a;
+      --card2: #0f1424;
+      --text: #e8edf7;
+      --muted: #aab4cc;
+      --accent: #22c55e;
+      --accent2: #00d4ff;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, rgba(34,197,94,0.15), transparent 35%),
+                  radial-gradient(circle at top right, rgba(0,212,255,0.12), transparent 40%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 70px 20px 40px;
+      text-align: center;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    header h1 span {
+      color: var(--accent);
+    }
+
+    header p {
+      color: var(--muted);
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.05rem;
+    }
+
+    nav {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(34,197,94,0.4);
+      background: rgba(34,197,94,0.12);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section {
+      margin-top: 50px;
+    }
+
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      border-left: 5px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,212,255,0.25);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.06);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tags {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+    }
+
+    .tag.highlight {
+      border-color: rgba(34,197,94,0.35);
+      color: var(--accent);
+    }
+
+    .tag.blue {
+      border-color: rgba(0,212,255,0.35);
+      color: var(--accent2);
+    }
+
+    .about {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 25px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .about strong {
+      color: var(--text);
+    }
+
+    .btns {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-weight: bold;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #0b0f1a;
+      border-color: rgba(34,197,94,0.7);
+    }
+
+    .btn.primary:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .btn.secondary {
+      background: rgba(0,212,255,0.12);
+      color: var(--accent2);
+      border-color: rgba(0,212,255,0.4);
+    }
+
+    .btn.secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(0,212,255,0.2);
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer a {
+      color: var(--accent2);
+      text-decoration: none;
+    }
+
+    .contact-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 25px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .contact-box strong {
+      color: var(--text);
+    }
+
+    .line {
+      margin-top: 15px;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Joissy <span>Andrade</span></h1>
+    <p>
+      Profissional multidisciplinar com experiência em <strong>tecnologia</strong>, 
+      <strong>análise de dados</strong>, <strong>desenvolvimento web</strong>, 
+      <strong>comunicação digital</strong> e <strong>gestão de projetos</strong>.
+      Atuo com soluções estratégicas e práticas para empresas, ONGs e projetos técnicos.
+    </p>
+
+    <div class="btns">
+      <a class="btn primary" href="#contato">Entrar em contato</a>
+      <a class="btn secondary" href="#projetos">Ver projetos</a>
+    </div>
+
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#competencias">Competências</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#formacao">Formação</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section">
+      <h2>Sobre mim</h2>
+
+      <div class="about">
+        Sou formado em <strong>Ciência da Computação</strong> e possuo <strong>Mestrado em Agronomia</strong> 
+        pela UNESP Jaboticabal, com pesquisa envolvendo uso de <strong>drones (VANTs)</strong> em florestas plantadas.
+        <br><br>
+        Tenho experiência prática com <strong>gestão de projetos</strong>, <strong>relatórios técnicos</strong>, 
+        <strong>auditorias e controle de qualidade</strong>, além de atuação em comunicação digital, 
+        construção de sites e apoio estratégico para organizações.
+        <br><br>
+        Meu objetivo é desenvolver soluções que unam <strong>tecnologia</strong>, <strong>dados</strong> e <strong>impacto real</strong>, 
+        trazendo eficiência, inovação e resultados mensuráveis.
+      </div>
+    </section>
+
+    <!-- COMPETÊNCIAS -->
+    <section id="competencias" class="section">
+      <h2>Competências</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>📊 Dados & Análise</h3>
+          <p>
+            Organização, tratamento e análise de dados para relatórios e tomada de decisão estratégica.
+          </p>
+          <div class="tags">
+            <span class="tag highlight">Python</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Google Sheets</span>
+            <span class="tag blue">Relatórios</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🌐 Desenvolvimento Web</h3>
+          <p>
+            Criação de sites institucionais e páginas profissionais com foco em performance e clareza.
+          </p>
+          <div class="tags">
+            <span class="tag highlight">HTML</span>
+            <span class="tag highlight">CSS</span>
+            <span class="tag">WordPress</span>
+            <span class="tag blue">GitHub Pages</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📌 Gestão de Projetos</h3>
+          <p>
+            Planejamento, execução e organização de projetos técnicos e sociais com metas claras.
+          </p>
+          <div class="tags">
+            <span class="tag">Planejamento</span>
+            <span class="tag">Cronogramas</span>
+            <span class="tag blue">Editais</span>
+            <span class="tag highlight">Captação</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🚁 Tecnologia no Agro</h3>
+          <p>
+            Experiência com drones (VANTs), monitoramento, pulverização e otimização de processos agrícolas/florestais.
+          </p>
+          <div class="tags">
+            <span class="tag highlight">VANT</span>
+            <span class="tag">Pulverização</span>
+            <span class="tag">Imageamento</span>
+            <span class="tag blue">Geotecnologia</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📣 Comunicação Digital</h3>
+          <p>
+            Gestão de redes sociais, campanhas e planejamento de comunicação com foco em engajamento e credibilidade.
+          </p>
+          <div class="tags">
+            <span class="tag">Instagram</span>
+            <span class="tag">Canva</span>
+            <span class="tag highlight">Estratégia</span>
+            <span class="tag blue">Branding</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📝 Documentação Técnica</h3>
+          <p>
+            Produção de relatórios gerenciais, documentos técnicos e prestação de contas para instituições.
+          </p>
+          <div class="tags">
+            <span class="tag">Relatórios</span>
+            <span class="tag">Prestação de Contas</span>
+            <span class="tag highlight">Documentação</span>
+            <span class="tag blue">Projetos</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="section">
+      <h2>Projetos em destaque</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>💻 Portais e Sites Institucionais</h3>
+          <p>
+            Desenvolvimento e organização de sites para instituições, criando presença digital profissional e acessível.
+          </p>
+          <div class="tags">
+            <span class="tag highlight">Web</span>
+            <span class="tag">WordPress</span>
+            <span class="tag blue">Estrutura Digital</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📈 Planejamento Estratégico e Captação</h3>
+          <p>
+            Elaboração de planos de comunicação, captação de recursos e estruturação institucional para editais.
+          </p>
+          <div class="tags">
+            <span class="tag highlight">Captação</span>
+            <span class="tag">Editais</span>
+            <span class="tag blue">Planejamento</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🚁 Drones no Agro e Florestas</h3>
+          <p>
+            Projetos e experiências com drones para pulverização, imageamento e análise técnica em campo.
+          </p>
+          <div class="tags">
+            <span class="tag highlight">VANT</span>
+            <span class="tag">Agricultura</span>
+            <span class="tag blue">Tecnologia</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📊 Relatórios e Auditorias</h3>
+          <p>
+            Experiência em controle de qualidade, auditorias internas e construção de relatórios gerenciais no setor florestal.
+          </p>
+          <div class="tags">
+            <span class="tag">Qualidade</span>
+            <span class="tag highlight">Auditoria</span>
+            <span class="tag blue">Gestão</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🧩 Projeto Intergeracional</h3>
+          <p>
+            Tecendo Memórias: oficinas intergeracionais de arte e cultura para fortalecimento de vínculos e inclusão social.
+          </p>
+          <div class="tags">
+            <span class="tag highlight">Projeto Social</span>
+            <span class="tag">Cultura</span>
+            <span class="tag blue">Comunidade</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📢 Campanhas de Conscientização</h3>
+          <p>
+            Desenvolvimento de campanhas digitais e materiais educativos para Setembro Amarelo, Maio Laranja e outros.
+          </p>
+          <div class="tags">
+            <span class="tag">Conteúdo</span>
+            <span class="tag highlight">Design</span>
+            <span class="tag blue">Comunicação</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section id="formacao" class="section">
+      <h2>Formação Acadêmica</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>🎓 Mestrado em Agronomia</h3>
+          <p>
+            UNESP Jaboticabal – Programa de Ciência do Solo<br>
+            Pesquisa: uso de drones (VANTs) em povoamentos de <em>Eucalyptus spp.</em>
+          </p>
+          <div class="tags">
+            <span class="tag highlight">Drones</span>
+            <span class="tag">Geotecnologia</span>
+            <span class="tag blue">Pesquisa</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🎓 Bacharelado em Ciência da Computação</h3>
+          <p>
+            Centro Universitário Estácio Uniseb<br>
+            Pesquisa: infestação de formigas cortadeiras em plantações de eucalipto.
+          </p>
+          <div class="tags">
+            <span class="tag highlight">Computação</span>
+            <span class="tag">Pesquisa</span>
+            <span class="tag blue">Dados</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section">
+      <h2>Contato</h2>
+
+      <div class="contact-box">
+        <p><strong>📩 E-mail:</strong> seuemail@email.com</p>
+        <p><strong>📱 WhatsApp:</strong> (xx) xxxxx-xxxx</p>
+        <p><strong>📷 Instagram:</strong> @casadosvelhinhosdeserrana</p>
+        <p><strong>💻 GitHub:</strong> https://github.com/seuusuario</p>
+
+        <div class="line"></div>
+
+        <div class="btns" style="margin-top: 20px;">
+          <a class="btn primary" target="_blank" href="https://wa.me/55SEUNUMEROAQUI">
+            Falar no WhatsApp
+          </a>
+          <a class="btn secondary" target="_blank" href="mailto:seuemail@email.com">
+            Enviar e-mail
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      © <span id="year"></span> Joissy Andrade | Portfólio Profissional
+      <br>
+      Desenvolvido para apresentar projetos, experiência e soluções em tecnologia.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("year").innerText = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
